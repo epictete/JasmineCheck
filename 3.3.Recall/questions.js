@@ -22,7 +22,6 @@ let reverseWordsInArray = (array) => {
     return reverse;
 }
 
-// Unfinished
 let everyPossiblePair = (array) => {
     const sorted = array.sort();
     const pair = [];
@@ -156,7 +155,10 @@ let roundUp = (number) => {
 }
 
 let formatDateNicely = (date) => {
-    return [date.getDate(), date.getMonth() + 1, date.getFullYear()].map(n => n < 10 ? `0${n}` : `${n}`).join('/');
+    const day = date.getDate();
+    const month = (date.getMonth() + 1);
+    const year = date.getFullYear();
+    return [day, month, year].map(n => n < 10 ? `0${n}` : `${n}`).join('/');
 }
 
 let getDomainName = (string) => {
@@ -166,11 +168,17 @@ let getDomainName = (string) => {
 }
 
 let titleize = (string) => {
-    return string;
+    str = string.split(" ");
+    for (let i = 0; i < str.length; i++) {
+        if (str[i].length > 3 || i === 0 || str[i - 1].indexOf('.') > 0) {
+            str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+        }
+    }
+    return str.join(" ");
 }
 
 let checkForSpecialCharacters = (string) => {
-    return string;
+    return string.replace(/[a-zA-Z0-9]/g, '').length > 0;
 }
 
 let squareRoot = (number) => {
@@ -191,15 +199,26 @@ let factorial = (number) => {
 }
 
 let findAnagrams = (string) => {
-    return 'Write your method here';
+    function permutations(str) {
+        if (str.length === 1)
+            return str;
+        const permut = [];
+        for (let i = 0; i < str.length; i++) {
+            const s = str[0];
+            const newStr = permutations(str.slice(1, str.length));
+            for (let j = 0; j < newStr.length; j++)
+                permut.push(s + newStr[j]);
+            str = str.substr(1, str.length - 1) + s;
+        }
+        return permut;
+    }
+    return permutations(string);
 }
 
 let convertToCelsius = (number) => {
-
     return Math.round((number - 32) * 5 / 9);
 }
 
 let letterPosition = (array) => {
-    const arr = array.map(x => (x.toLowerCase().charCodeAt() - 96));
-    return arr;
+    return array.map(x => (x.toLowerCase().charCodeAt() - 96));
 }
