@@ -1,18 +1,13 @@
 let CreationTableauLangages = () => {
-    const langages = ['Html', 'CSS', 'Java', 'PHP'];
-    return langages;
+    return ['Html', 'CSS', 'Java', 'PHP'];
 }
 
 let CreationTableauNombres = () => {
-    const nombres = [];
-    for (let i = 0; i <= 5; i++) {
-        nombres.push(i);
-    }
-    return nombres;
+    return [0, 1, 2, 3, 4, 5];
 }
 
 let RemplacementElement = (langages) => {
-    langages[langages.indexOf('Java')] = 'Javascript';
+    langages.splice(langages.indexOf('Java'), 1, 'Javascript');
     return langages;
 }
 
@@ -23,29 +18,29 @@ let AjoutElementLangages = (langages) => {
 }
 
 let AjoutElementNombres = (nombres) => {
-    nombres.push(-1);
-    nombres.push(-2);
-    return nombres.sort((a, b) => a - b);
+    nombres.unshift(-1);
+    nombres.unshift(-2);
+    return nombres;
 }
 
 let SuppressionPremierElement = (langages) => {
-    const x = langages;
-    x.shift();
-    return x;
+    langages.shift();
+    return langages;
 }
 
 let SuppressionDernierElement = (langages) => {
-    const x = langages;
-    x.pop()
-    return x;
+    langages.pop()
+    return langages;
 }
 
 let ConversionChaineTableau = (reseaux_sociaux_chaine) => {
-    return reseaux_sociaux_chaine.split(',');
+    let reseaux_sociaux = reseaux_sociaux_chaine.split(',');
+    return reseaux_sociaux;
 }
 
 let ConversionTableauChaine = (langages) => {
-    return langages.join(',');
+    let langages_chaine = langages.join();
+    return langages_chaine;
 }
 
 let TriTableau = (reseaux_sociaux) => {
