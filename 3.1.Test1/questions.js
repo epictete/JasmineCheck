@@ -3,12 +3,10 @@ let tailleString = (texte) => {
     return texte.length;
 }
 let remplaceECar = (texte) => {
-    let a = texte.indexOf("e")
-    let text = texte.substr(" ", a) + " " + texte.substr(a + 1, texte.length);
-    return text;
+    return texte.replace('e', ' ');
 }
 let concatString = (texte1, texte2) => {
-    return texte1 + texte2;
+    return texte1.concat(texte2);
 }
 let afficherCar5 = (texte) => {
     return texte.charAt(4);
@@ -26,7 +24,7 @@ let SupprEspaceString = (texte) => {
     return texte.trim();
 }
 let IsString = (texte) => {
-    return typeof texte == 'string';
+    return typeof texte === 'string';
 }
 
 let AfficherExtensionString = (texte) => {
